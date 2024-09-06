@@ -1,0 +1,69 @@
+*, :before, :after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --root-bg: #1b1f23;
+  --root-color: #fff;
+
+  background-color: var(--root-bg);
+  color: var(--root-color);
+  font-size: 16px;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+}
+
+body {height: 100dvh;}
+
+header {}
+
+main {}
+
+.section {
+  position: relative;
+  height: 100vh;
+  padding: 5rem;
+
+  &--hero {
+    background: url(https://github.githubassets.com/assets/hero-bg-ee8ae9ad2db9.jpg) center no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+
+  &--enterprise-ready {}
+
+  &--industry-standard {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      right: -2rem;
+      width: 15rem;
+      aspect-ratio: 474/414;
+      background: url(https://github.com/images/modules/site/copilot/productivity-bg-head.png);
+      background-size: cover;
+    }
+  }
+  &--features-focus {}
+  &--pricing {}
+  &--features-table {}
+  &--need-human {}
+  &--related {}
+  &--faq {}
+
+  &:nth-child(even) {
+    background-color: #161b22;
+  }
+}
+
+footer {
+  padding: 2rem;
+
+  &__logo {}
+  &__menu {
+    list-style-type: none;
+  }
+}
