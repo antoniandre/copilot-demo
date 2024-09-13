@@ -1,3 +1,5 @@
+// Global structure.
+// --------------------------------------------------------
 *, :before, :after {
   margin: 0;
   padding: 0;
@@ -11,12 +13,31 @@
   background-color: var(--root-bg);
   color: var(--root-color);
   font-size: 16px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-family: "Mona Sans", "MonaSansFallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-body {height: 100dvh;}
+body {
+  height: 100dvh;
+  overflow-x: hidden;
+}
 
 header {}
+
+.top-bar {
+  box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  inset: 0 0 auto;
+  background-color: #0d1117;
+  z-index: 10;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 48px;
+  }
+}
 
 main {}
 
@@ -67,3 +88,11 @@ footer {
     list-style-type: none;
   }
 }
+
+// Typography.
+// --------------------------------------------------------
+@font-face {
+  font-family: "Mona Sans";
+  src: url("https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2");
+}
+
