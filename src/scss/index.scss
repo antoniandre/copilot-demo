@@ -9,6 +9,7 @@
 :root {
   --root-bg: #1b1f23;
   --root-color: #fff;
+  --main-bg-color: #0d1117;
 
   background-color: var(--root-bg);
   color: var(--root-color);
@@ -27,7 +28,7 @@ header {}
   box-shadow: 0 3px 6px rgba(140, 149, 159, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
   position: fixed;
   inset: 0 0 auto;
-  background-color: #0d1117;
+  background-color: var(--main-bg-color);
   z-index: 10;
 
   ul {
@@ -39,13 +40,10 @@ header {}
   }
 }
 
-main {}
-
 .section {
   position: relative;
   height: 100vh;
   padding: 5rem;
-  z-index: 1;
 
   &--hero {
     background: url(https://github.githubassets.com/assets/hero-bg-ee8ae9ad2db9.jpg) center no-repeat;
@@ -77,9 +75,10 @@ main {}
 
   &--industry-standard {
     position: relative;
-    background: linear-gradient(to bottom, #0d1117, #21262d);
+    background: linear-gradient(to bottom, var(--main-bg-color), #21262d);
+    height: auto;
 
-    &.head {
+    .head {
       content: '';
       position: absolute;
       top: 10%;
@@ -113,10 +112,39 @@ main {}
       background-size: cover;
       z-index: 0;
     }
+
+    h2 {
+      margin-bottom: 4rem;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+
+    .box--quote {
+      margin-top: 2rem;
+      padding: 4rem;
+    }
+
+    .quote {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .author__name {margin-top: 1.7rem;}
+    .author__position {color: #8b949e;font-family: monospace;}
   }
 
   &--features-focus {
     background-image: linear-gradient(to bottom, #1b1f23, #0e1018);
+    height: auto;
+
+    video {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1.93;
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 3;
+    }
   }
 
   &--pricing {
@@ -135,7 +163,7 @@ main {}
       transform: translateX(-50%);
       margin-left: 50%;
       background-size: contain;
-      z-index: -1;
+      z-index: 0;
     }
 
     &:after {
@@ -155,6 +183,7 @@ main {}
     position: relative;
     height: 400px;
     background-color: #0d1116;
+    text-align: center;
 
     &:before {
       content: '';
@@ -164,10 +193,26 @@ main {}
       background: url(https://github.com/images/modules/site/copilot/glow-help.webp) no-repeat;
       background-size: contain;
     }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    p.caption {
+      margin-top: 0rem;
+      font-size: 1.2rem;
+    }
   }
 
   &--related {
     background-color: #0d1116;
+
+    h2 {margin-bottom: 4rem;}
+
+    .box {
+      background-color: #161b22;
+    }
   }
 
   &--faq {
@@ -177,7 +222,7 @@ main {}
 
 footer {
   padding: 2rem;
-  background-color: #0d1117;
+  background-color: var(--main-bg-color);
 
   &__logo {}
   &__menu {
@@ -192,12 +237,27 @@ footer {
   src: url("https://github.githubassets.com/assets/mona-sans-d1bf285e9b9b.woff2");
 }
 
+h1 {margin-top: 2rem;font-size: 4rem;}
+h2 {margin-top: 2rem;font-size: 4rem;}
+
+.headline {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+.subheader {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: #8b949e;
+}
+.caption {color: #8b949e;}
+
 // Shared Classes.
 // --------------------------------------------------------
 .pill {
   position: relative;
   display: inline-flex;
-  padding: 4px 12px;
+  padding: 6px 12px;
   font-size: 16px;
   line-height: 1;
   border-radius: 99em;
@@ -208,11 +268,90 @@ footer {
     position: absolute;
     inset: 0;
     background-image: radial-gradient( circle at top left, #d2a8ff, #56d364);
-    mask: linear-gradient(90deg, #0d1117, #fff) content-box, linear-gradient(90deg, #0d1117, #fff);
+    mask: linear-gradient(90deg, var(--main-bg-color), #fff) content-box, linear-gradient(90deg, var(--main-bg-color), #fff);
     padding: 1px;
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     border-color: transparent;
     border-radius: inherit;
   }
+}
+
+.flex {display: flex;}
+.gap1 {gap: 1rem;}
+.gap2 {gap: 2rem;}
+.white {color: #fff;}
+.mta {margin-top: auto;}
+
+.boxes {
+  gap: 2rem;
+}
+.boxes > .box {
+  width: 100%;
+  max-width: calc(33% - 1rem);
+}
+
+.box {
+  position: relative;
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  z-index: 2;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: -1px;
+    pointer-events: none;
+    border: 1.5px solid rgba(255, 255, 255, .12);
+    border-radius: inherit;
+    -webkit-mask-image: linear-gradient(135deg, #fff 0%, transparent 50%);
+    mask-image: linear-gradient(135deg, #fff 0%, transparent 50%);
+  }
+
+  .caption {margin-top: 2rem;}
+}
+
+.cta {
+  position: relative;
+  height: 40px;
+  background-color: transparent;
+  padding: 0 12px;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-flex;
+  border: 1px solid #ffffff16;
+  font-size: 1rem;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  &--link {
+    padding: 0;
+    height: auto;
+    border: none;
+    color: #79c0ff;
+    text-align: left;
+
+    &::before {display: none;}
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: -1px;
+    pointer-events: none;
+    border: 1.5px solid rgba(255, 255, 255, .12);
+    border-radius: inherit;
+    -webkit-mask-image: linear-gradient(135deg, #fff 0%, transparent 50%);
+    mask-image: linear-gradient(135deg, #fff 0%, transparent 50%);
+  }
+
 }
